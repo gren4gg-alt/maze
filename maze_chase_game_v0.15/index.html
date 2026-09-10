@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#090b0f" />
+  <title>Maze Hunt</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main id="app">
+    <section class="game-shell" aria-label="Maze Hunt game">
+      <header class="hud">
+        <div class="hud-group">
+          <span class="eyebrow">MAZE HUNT</span>
+          <strong id="levelLabel">Level 1</strong>
+        </div>
+
+        <div class="hud-center">
+          <div id="keyStatus" class="key-status">
+            <span class="key-icon">◆</span>
+            <span id="keyText">0 / 1 KEYS</span>
+          </div>
+
+          <div class="enemy-status">
+            <span id="statusDot" class="status-dot"></span>
+            <span id="enemyState">PATROL</span>
+          </div>
+        </div>
+
+        <div class="hud-actions">
+          <button id="soundBtn" class="icon-btn" type="button" aria-label="Mute sound" title="Mute sound">🔊</button>
+          <button id="restartBtn" class="icon-btn" type="button" aria-label="Restart level" title="Restart level">↻</button>
+        </div>
+      </header>
+
+      <div id="canvasWrap" class="canvas-wrap">
+        <canvas id="gameCanvas" aria-label="Maze game canvas"></canvas>
+
+        <div id="mainMenu" class="screen-overlay">
+          <div class="menu-card main-menu-card">
+            <span class="eyebrow">SURVIVAL MAZE</span>
+            <h1 class="game-title">MAZE HUNT</h1>
+            <p class="menu-subtitle">Escape before the hunters close in.</p>
+
+            <div class="menu-buttons">
+              <button id="playBtn" class="menu-btn primary-menu-btn" type="button">PLAY</button>
+              <button id="levelSelectBtn" class="menu-btn" type="button">LEVEL SELECT</button>
+              <button id="menuSoundBtn" class="menu-btn" type="button">SOUND: ON</button>
+            </div>
+
+            <p class="menu-hint">Use loops, corners and darkness to survive.</p>
+
+            <div id="adBanner" class="ad-banner">
+              <span class="ad-label">AD PLACEHOLDER</span>
+              <span>Banner ad will appear here later</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="levelSelectScreen" class="screen-overlay hidden">
+          <div class="menu-card level-card">
+            <div class="menu-header-row">
+              <div>
+                <span class="eyebrow">CHOOSE YOUR MAZE</span>
+                <h2>Level Select</h2>
+              </div>
+              <button id="levelBackBtn" class="icon-btn" type="button" aria-label="Back to menu">←</button>
+            </div>
+
+            <div id="levelGrid" class="level-grid"></div>
+            <p class="menu-hint">Complete a level to unlock the next one.</p>
+          </div>
+        </div>
+
+        <div id="messagePanel" class="message-panel hidden">
+          <div class="panel-card">
+            <span class="eyebrow">ESCAPE THE HUNTER</span>
+            <h1 id="messageTitle">Maze Hunt</h1>
+            <p id="messageText">
+              Reach the exit without being caught. Multiple hunters patrol later levels—use loops and intersections to split them up.
+            </p>
+            <div class="message-actions">
+              <button id="mainActionBtn" class="primary-btn" type="button">Start</button>
+              <button id="rewardReviveBtn" class="secondary-btn hidden" type="button">
+                Watch Ad → Revive
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="adOverlay" class="ad-overlay hidden">
+          <div class="ad-overlay-card">
+            <span class="ad-label">DEVELOPMENT PLACEHOLDER</span>
+            <h2 id="adOverlayTitle">AD BREAK</h2>
+            <p id="adOverlayText">A real ad will appear here later.</p>
+            <button id="adOverlayClose" class="primary-btn" type="button">Continue</button>
+          </div>
+        </div>
+
+        <button id="interactBtn" class="interact-btn hidden" type="button" aria-label="Hide">HIDE</button>
+
+        <div class="mobile-controls" aria-label="Touch controls">
+          <button class="dpad up" data-dir="up" aria-label="Move up">▲</button>
+          <button class="dpad left" data-dir="left" aria-label="Move left">◀</button>
+          <button class="dpad right" data-dir="right" aria-label="Move right">▶</button>
+          <button class="dpad down" data-dir="down" aria-label="Move down">▼</button>
+        </div>
+      </div>
+
+      <footer class="tips">
+        <span><kbd>WASD</kbd> / <kbd>Arrows</kbd> move · <kbd>E</kbd> hide</span>
+        <span class="desktop-tip">Use hiding spots before hunters see you. If they watched you enter, they may check it.</span>
+      </footer>
+    </section>
+  </main>
+
+  <script src="js/levels.js"></script>
+  <script src="js/maze.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/pathfinding.js"></script>
+  <script src="js/enemy.js"></script>
+  <script src="js/controls.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/ads.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
